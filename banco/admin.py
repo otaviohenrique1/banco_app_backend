@@ -46,7 +46,7 @@ class Cartoes(admin.ModelAdmin):
         "nome",
         "numero",
         "validade",
-        "cvc",
+        "cvv",
         "tipo",
         "cliente",
     )

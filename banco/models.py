@@ -5,9 +5,9 @@ class Conta(models.Model):
     saldo = models.DecimalField(
         max_digits=20, decimal_places=2, null=False, blank=False
     )
-    agencia = models.IntegerField(max_length=4, null=False, blank=False)
-    banco = models.IntegerField(max_length=4, null=False, blank=False)
-    conta = models.IntegerField(max_length=10, null=False, blank=False)
+    agencia = models.IntegerField(null=False, blank=False)
+    banco = models.IntegerField(null=False, blank=False)
+    conta = models.IntegerField(null=False, blank=False)
     nome_banco = models.CharField(max_length=255, null=False, blank=False)
 
     def __str__(self):
