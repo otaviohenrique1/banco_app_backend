@@ -18,9 +18,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+
 # from banco.views import CartaoViewSet, ClienteViewSet, ContaViewSet
 from banco2.views import CustomerViewSet
-from banco3.views import Cartao2ViewSet, Cliente2ViewSet, Conta2ViewSet
+from banco3.views import Cartao2ViewSet, Cliente2ViewSet, Conta2ViewSet, LoginView
 
 router = routers.DefaultRouter()
 router.register("contas", Conta2ViewSet, basename="contas")
@@ -32,4 +33,6 @@ router.register("customers", CustomerViewSet, basename="customers")
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(router.urls)),
+    # path('login/', LoginView2.as_view(), name='login')
+    path("login/", LoginView.as_view(), name="login"),
 ]

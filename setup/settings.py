@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     "banco",
     "banco2",
     "banco3",
+    "rest_framework.authtoken",
+    "knox",
 ]
 
 MIDDLEWARE = [
@@ -131,4 +133,19 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 APPEND_SLASH = False
+
 CORS_ALLOW_ALL_ORIGINS = True
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "knox.auth.TokenAuthentication",
+    ],
+}
+
+REST_KNOX_AUTH_TOKEN_MODEL = "rest_framework.authtoken.models.Token"
+REST_KNOX_BLACKLIST_TOKEN_URL = "knox:blacklist/"
+REST_KNOX_USE_JWT = True
+
+KNOX = {
+    "TOKEN_TTL": None,
+}
