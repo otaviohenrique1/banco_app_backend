@@ -5,18 +5,18 @@ from banco.serializers import CartaoSerializer, ClienteSerializer, ContaSerializ
 from django_filters.rest_framework import DjangoFilterBackend
 
 
-class ContaViewSet(viewsets.ModelViewSet):
-    queryset = Conta.objects.all()
-    serializer_class = ContaSerializer
-    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
-    search_fields = ["conta"]
-
-
 class ClienteViewSet(viewsets.ModelViewSet):
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     search_fields = ["nome", "cpf"]
+
+
+class ContaViewSet(viewsets.ModelViewSet):
+    queryset = Conta.objects.all()
+    serializer_class = ContaSerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    search_fields = ["conta"]
 
 
 class CartaoViewSet(viewsets.ModelViewSet):

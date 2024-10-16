@@ -1,0 +1,13 @@
+{
+  "nome": "Otavio",
+  "email": "otavio2@email.com",
+  "cpf": "91846202000",
+  "senha": "0123456789",
+  "conta": {
+    "saldo": 0,
+    "agencia": "1234",
+    "banco": "4321", 
+    "conta": "12345678-9",
+    "nome_banco": "BancoAPP"
+  }
+}

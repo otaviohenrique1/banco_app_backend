@@ -1,24 +1,6 @@
 from django.contrib import admin
 
 
-class Contas(admin.ModelAdmin):
-    list_display = (
-        "id",
-        "saldo",
-        "agencia",
-        "banco",
-        "conta",
-        "nome_banco",
-    )
-    list_display_links = (
-        "id",
-        "saldo",
-    )
-    list_per_page = 20
-    search_fields = ("conta",)
-    ordering = ("conta",)
-
-
 class Clientes(admin.ModelAdmin):
     list_display = (
         "id",
@@ -26,7 +8,7 @@ class Clientes(admin.ModelAdmin):
         "email",
         "senha",
         "cpf",
-        "conta",
+        # "conta",
     )
     list_display_links = (
         "id",
@@ -38,6 +20,25 @@ class Clientes(admin.ModelAdmin):
         "cpf",
     )
     ordering = ("nome",)
+
+
+class Contas(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "saldo",
+        "agencia",
+        "banco",
+        "conta",
+        "nome_banco",
+        "cliente",
+    )
+    list_display_links = (
+        "id",
+        "saldo",
+    )
+    list_per_page = 20
+    search_fields = ("conta",)
+    ordering = ("conta",)
 
 
 class Cartoes(admin.ModelAdmin):
