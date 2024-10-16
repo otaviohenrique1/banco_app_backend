@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "drf_yasg",
     "corsheaders",
     "banco",
+    "banco2",
+    "banco3",
 ]
 
 MIDDLEWARE = [
@@ -127,4 +129,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 APPEND_SLASH=False
+CORS_ALLOW_ALL_ORIGINS = True

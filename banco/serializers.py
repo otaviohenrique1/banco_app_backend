@@ -10,6 +10,7 @@ class ContaSerializer(serializers.ModelSerializer):
             "saldo",
             "agencia",
             "banco",
+            "conta",
             "nome_banco",
             "cliente",
         ]
