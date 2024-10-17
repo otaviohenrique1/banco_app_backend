@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from banco3.models import Conta2, Cliente2, Cartao2
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import check_password
 from django.contrib.auth import authenticate
-
 
 class Conta2Serializer(serializers.ModelSerializer):
     class Meta:
@@ -40,7 +40,17 @@ class LoginSerializer(serializers.Serializer):
     def validate(self, data):
         cpf = data.get('cpf')
         senha = data.get('senha')
-        cliente = authenticate(username=cpf, password=senha)
-        if not cliente:
+        try:
+            cliente = Cliente2.objects.get(cpf=cpf)
+        except Cliente2.DoesNotExist:
             raise serializers.ValidationError('CPF ou senha inválidos.')
+        
+        if not check_password(senha, cliente.senha):
+            # print(f"senha {senha}")
+            # print(f"senha {cliente.senha}")
+            raise serializers.ValidationError('CPF ou senha inválidos. asd')
+
+        print("----------------")
+        print(f"{cliente}")
+        print("----------------")
         return {'cliente': cliente}

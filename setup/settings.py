@@ -149,3 +149,4 @@ REST_KNOX_USE_JWT = True
 KNOX = {
     "TOKEN_TTL": None,
 }
+

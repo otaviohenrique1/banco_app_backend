@@ -33,9 +33,12 @@ class LoginView(APIView):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         cliente = serializer.validated_data['cliente']
-        token = AuthToken.objects.create(user=cliente)
+        print("---------------------")
+        # token = AuthToken.objects.create(user=cliente)[1]
+        print("---------------------")
         return Response({
-            'token': token.token,
+            # 'token': token,
+            'token': "0123456789",
             'cliente_id': cliente.pk,
             'cpf': cliente.cpf
         }, status=status.HTTP_200_OK)
