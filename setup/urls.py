@@ -24,7 +24,7 @@ from banco2.views import CustomerViewSet
 from banco3.views import Cartao2ViewSet, Cliente2ViewSet, Conta2ViewSet, LoginView
 
 router = routers.DefaultRouter()
-router.register("contas", Conta2ViewSet, basename="contas")
+# router.register("contas", Conta2ViewSet, basename="contas")
 router.register("clientes", Cliente2ViewSet, basename="clientes")
 router.register("cartoes", Cartao2ViewSet, basename="cartoes")
 router.register("customers", CustomerViewSet, basename="customers")
@@ -33,6 +33,7 @@ router.register("customers", CustomerViewSet, basename="customers")
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(router.urls)),
+    path("contas/<int:cliente_id>/", Conta2ViewSet.as_view(), name="contas"),
     # path('login/', LoginView2.as_view(), name='login')
     path("login/", LoginView.as_view(), name="login"),
 ]

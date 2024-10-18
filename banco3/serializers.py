@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate
 class Conta2Serializer(serializers.ModelSerializer):
     class Meta:
         model = Conta2
-        fields = ["saldo", "agencia", "banco", "conta_numero", "nome_banco"]
+        fields = ["id", "saldo", "agencia", "banco", "conta_numero", "nome_banco"]
 
 
 class Cliente2Serializer(serializers.ModelSerializer):
@@ -15,7 +15,7 @@ class Cliente2Serializer(serializers.ModelSerializer):
 
     class Meta:
         model = Cliente2
-        fields = ["nome", "email", "senha", "cpf", "conta"]
+        fields = ["id", "nome", "email", "senha", "cpf", "conta"]
     
     def create(self, validated_data):
         conta_data = validated_data.pop("conta")
@@ -30,7 +30,7 @@ class Cliente2Serializer(serializers.ModelSerializer):
 class Cartao2Serializer(serializers.ModelSerializer):
     class Meta:
         model = Cartao2
-        fields = ["nome", "numero", "validade", "cvv", "tipo", "cliente"]
+        fields = ["id", "nome", "numero", "validade", "cvv", "tipo", "cliente"]
 
 
 class LoginSerializer(serializers.Serializer):
@@ -50,7 +50,7 @@ class LoginSerializer(serializers.Serializer):
             # print(f"senha {cliente.senha}")
             raise serializers.ValidationError('CPF ou senha inválidos. asd')
 
-        print("----------------")
-        print(f"{cliente}")
-        print("----------------")
+        # print("----------------")
+        # print(f"{cliente}")
+        # print("----------------")
         return {'cliente': cliente}
